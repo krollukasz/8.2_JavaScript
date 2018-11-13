@@ -53,7 +53,7 @@ function fahrenheitToCelsius (){
     if (tempFahrenheit !== null){ //Sprawdzenie czy podana wartość istnieje
       if (tempFahrenheit !== "" || !isNan) { // Sprawdzenie czy wartość jest liczbą
         tempCelsius = (tempFahrenheit - 32) / 1.8 ;
-        outputCelsius = getElementById("outputCelsius");
+        outputCelsius = document.getElementById("outputCelsius");
         outputCelsius.innerText = "Podana temperatura to " + tempFahrenheit + "℉. Jej odpowiednik to " + tempCelsius.toFixed(1) + "℃";
         if (tempCelsius < 0){
           msg = "woda jest zamarznięta.";
