@@ -15,10 +15,8 @@
     "build:sass": "node-sass --output-style compact -o css sass",
     "build:autoprefixer": "autoprefixer-cli css/style.css",
     "build-dev:sass": "node-sass --output-style expanded --source-map true -o css sass",
-
     "watch": "npm-run-all build -s watch:*",
     "watch:sassprefixer": "onchange sass/*.scss -- npm-run-all build-dev:sass build:autoprefixer",
-
     "watch:browser-sync": "browser-sync start --server --files 'css/*.css' '*.html'"
   },
   "keywords": [],
@@ -38,5 +36,13 @@
     "nu-html-checker": "^0.1.0",
     "onchange": "^5.0.2",
     "rimraf": "^2.6.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krollukasz/8.2_JavaScript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/krollukasz/8.2_JavaScript/issues"
+  },
+  "homepage": "https://github.com/krollukasz/8.2_JavaScript#readme"
 }
