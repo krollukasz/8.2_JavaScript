@@ -25,8 +25,8 @@ if (!name || name === 'null'){
 // Celsius to Fahrenheit
 function celsiusToFahrenheit (){
   tempCelsius = window.prompt("Podaj temperaturę w stopniach Celsiusza"); // Prompt o podanie temperatury
-  if (tempCelsius !== null){ //Sprawdzenie czy podana wartość istnieje
-    if (tempCelsius !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
+  if (tempCelsius.trim() !== null){ //Sprawdzenie czy podana wartość istnieje
+    if (tempCelsius !== "" || !Number.isNaN(tempCelsius)) { // Sprawdzenie czy wartość jest liczbą
       tempFahrenheit = tempCelsius * 1.8 + 32;
       outputFahrenheit.innerText = "Podana temperatura to " + tempCelsius + "℃. Jej odpowiednik to " + tempFahrenheit.toFixed(1) + "℉.";
       if(tempCelsius < 0){
@@ -45,7 +45,7 @@ celsiusToFahrenheitButton.addEventListener("click", celsiusToFahrenheit);
 // Fahrenheit to Celsius
 function fahrenheitToCelsius (){
   tempFahrenheit = window.prompt("Podaj temperaturę w stopniach Fahrenheita"); // Prompt o podanie temperatury
-  if (tempFahrenheit !== null){ //Sprawdzenie czy podana wartość istnieje
+  if (tempFahrenheit.trim() !== null){ //Sprawdzenie czy podana wartość istnieje
     if (tempFahrenheit !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
       tempCelsius = (tempFahrenheit - 32) / 1.8 ;
       outputCelsius.innerText = "Podana temperatura to " + tempFahrenheit + "℉. Jej odpowiednik to " + tempCelsius.toFixed(1) + "℃";
