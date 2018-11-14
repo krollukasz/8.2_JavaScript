@@ -16,7 +16,7 @@ var fahrenheitInfo = document.getElementById("fahrenheitInfo"); // jak wyżej
 
 var output = document.getElementById("welcome-message"); // komunikat powitalny
 
-// var name = window.prompt("Witaj ! Jak masz na imię ?"); // komunikat z pytaniem o imię
+var name = window.prompt("Witaj ! Jak masz na imię ?"); // komunikat z pytaniem o imię
 
 if (!name){
     alert ("Nie podano imienia");
@@ -28,7 +28,7 @@ if (!name){
 function celsiusToFahrenheit (){
     tempCelsius = window.prompt("Podaj temperaturę w stopniach Celsiusza"); // Prompt o podanie temperatury
     if (tempCelsius !== null){ //Sprawdzenie czy podana wartość istnieje
-      if (tempCelsius !== "" || !isNan) { // Sprawdzenie czy wartość jest liczbą
+      if (tempCelsius !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
         tempFahrenheit = tempCelsius * 1.8 + 32;
         outputFahrenheit = document.getElementById("outputFahrenheit");
         outputFahrenheit.innerText = "Podana temperatura to " + tempCelsius + "℃. Jej odpowiednik to " +           tempFahrenheit.toFixed(1) + "℉.";
@@ -51,7 +51,7 @@ celsiusToFahrenheitButton.addEventListener("click", celsiusToFahrenheit);
 function fahrenheitToCelsius (){
     tempFahrenheit = window.prompt("Podaj temperaturę w stopniach Celsiusza"); // Prompt o podanie temperatury
     if (tempFahrenheit !== null){ //Sprawdzenie czy podana wartość istnieje
-      if (tempFahrenheit !== "" || !isNan) { // Sprawdzenie czy wartość jest liczbą
+      if (tempFahrenheit !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
         tempCelsius = (tempFahrenheit - 32) / 1.8 ;
         outputCelsius = document.getElementById("outputCelsius");
         outputCelsius.innerText = "Podana temperatura to " + tempFahrenheit + "℉. Jej odpowiednik to " + tempCelsius.toFixed(1) + "℃";
