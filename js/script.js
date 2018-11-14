@@ -5,7 +5,7 @@ var fahrenheitToCelsiusButton = document.getElementById("fahrenheitToCelsius");
 
 var tempCelsius; // wartość temperatury, która ma być podana w prompcie
 var tempFahrenheit; // jak wyżej
-var name; // imię użytkownika
+var name = window.prompt("Witaj ! Jak masz na imię ?"); // komunikat z pytaniem o imię // [uwagi] var masz juz w linii 8 // poprawione
 var msg;
 
 var outputCelsius = document.getElementById("outputCelsius"); // wyświetlenie podanej i przeliczonej temperatury
@@ -15,8 +15,6 @@ var celsiusInfo = document.getElementById("celsiusInfo"); // info o stanie wody
 var fahrenheitInfo = document.getElementById("fahrenheitInfo"); // jak wyżej
 
 var output = document.getElementById("welcome-message"); // komunikat powitalny
-
-var name = window.prompt("Witaj ! Jak masz na imię ?"); // komunikat z pytaniem o imię // [uwagi] var masz juz w linii 8
 
 if (!name){
     alert ("Nie podano imienia");
@@ -30,7 +28,6 @@ function celsiusToFahrenheit (){
     if (tempCelsius !== null){ //Sprawdzenie czy podana wartość istnieje
       if (tempCelsius !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
         tempFahrenheit = tempCelsius * 1.8 + 32;
-        outputFahrenheit = document.getElementById("outputFahrenheit"); // [uwagi] masz juz w linii 12
         outputFahrenheit.innerText = "Podana temperatura to " + tempCelsius + "℃. Jej odpowiednik to " + tempFahrenheit.toFixed(1) + "℉.";
         if(tempCelsius < 0){
           msg = "woda jest zamarznięta.";
@@ -41,7 +38,6 @@ function celsiusToFahrenheit (){
         }
         console.log(fahrenheitInfo);
         fahrenheitInfo.innerText = "Przy temperaturze " + tempCelsius + "℃, " + msg;
-        // return tempCelsius;
       }
     } else alert ("Musisz podać temperaturę!");
 }
@@ -49,11 +45,10 @@ celsiusToFahrenheitButton.addEventListener("click", celsiusToFahrenheit);
 
 // Fahrenheit to Celsius
 function fahrenheitToCelsius (){
-    tempFahrenheit = window.prompt("Podaj temperaturę w stopniach Celsiusza"); // Prompt o podanie temperatury // [uwagi] powinno byc w stopniach Fahrenheita
+    tempFahrenheit = window.prompt("Podaj temperaturę w stopniach Fahrenheita"); // Prompt o podanie temperatury // [uwagi] powinno byc w stopniach Fahrenheita // No pewnie, że tak. Nie zauważyłem wcześniej, ale już poprawione
     if (tempFahrenheit !== null){ //Sprawdzenie czy podana wartość istnieje
       if (tempFahrenheit !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
         tempCelsius = (tempFahrenheit - 32) / 1.8 ;
-        outputCelsius = document.getElementById("outputCelsius"); // [uwagi] masz juz w linii 11
         outputCelsius.innerText = "Podana temperatura to " + tempFahrenheit + "℉. Jej odpowiednik to " + tempCelsius.toFixed(1) + "℃";
         if (tempCelsius < 0){
           msg = "woda jest zamarznięta.";
@@ -66,7 +61,6 @@ function fahrenheitToCelsius (){
       }
     } else alert ("Nie podano temperatury");
 }
-
 fahrenheitToCelsiusButton.addEventListener("click", fahrenheitToCelsius);
 
 
