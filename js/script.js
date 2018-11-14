@@ -16,7 +16,7 @@ var fahrenheitInfo = document.getElementById("fahrenheitInfo"); // jak wyżej
 
 var output = document.getElementById("welcome-message"); // komunikat powitalny
 
-if (!name){
+if (!name || name === 'null'){
   alert ("Nie podano imienia");
 } else {
   output.innerHTML = "Witaj na stronie " + name + ". Poniżej znajdziesz przelicznik temperatury." + "<br>" + "Działa on w skali Fahrenheit'a i Celsiusza." + "<br>" + "Są to dwie używane obecnie skale tepmeratur."; // wypisanie komunikatu powitalnego po podaniu imienia
@@ -36,7 +36,6 @@ function celsiusToFahrenheit (){
       } else if (tempCelsius >= 100){
         msg = "woda zamienia się w parę.";
       }
-      console.log(fahrenheitInfo);
       fahrenheitInfo.innerText = "Przy temperaturze " + tempCelsius + "℃, " + msg;
     }
   } else alert ("Musisz podać temperaturę!");
