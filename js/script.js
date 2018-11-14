@@ -5,7 +5,7 @@ var fahrenheitToCelsiusButton = document.getElementById("fahrenheitToCelsius");
 
 var tempCelsius; // wartość temperatury, która ma być podana w prompcie
 var tempFahrenheit; // jak wyżej
-var name = window.prompt("Witaj ! Jak masz na imię ?"); // komunikat z pytaniem o imię // [uwagi] var masz juz w linii 8 // poprawione
+var name = window.prompt("Witaj ! Jak masz na imię ?"); // komunikat z pytaniem o imię
 var msg;
 
 var outputCelsius = document.getElementById("outputCelsius"); // wyświetlenie podanej i przeliczonej temperatury
@@ -17,49 +17,49 @@ var fahrenheitInfo = document.getElementById("fahrenheitInfo"); // jak wyżej
 var output = document.getElementById("welcome-message"); // komunikat powitalny
 
 if (!name){
-    alert ("Nie podano imienia");
+  alert ("Nie podano imienia");
 } else {
-    output.innerHTML = "Witaj na stronie " + name + ". Poniżej znajdziesz przelicznik temperatury." + "<br>" + "Działa on w skali Fahrenheit'a i Celsiusza." + "<br>" + "Są to dwie używane obecnie skale tepmeratur."; // wypisanie komunikatu powitalnego po podaniu imienia
+  output.innerHTML = "Witaj na stronie " + name + ". Poniżej znajdziesz przelicznik temperatury." + "<br>" + "Działa on w skali Fahrenheit'a i Celsiusza." + "<br>" + "Są to dwie używane obecnie skale tepmeratur."; // wypisanie komunikatu powitalnego po podaniu imienia
 }
 
 // Celsius to Fahrenheit
 function celsiusToFahrenheit (){
-    tempCelsius = window.prompt("Podaj temperaturę w stopniach Celsiusza"); // Prompt o podanie temperatury
-    if (tempCelsius !== null){ //Sprawdzenie czy podana wartość istnieje
-      if (tempCelsius !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
-        tempFahrenheit = tempCelsius * 1.8 + 32;
-        outputFahrenheit.innerText = "Podana temperatura to " + tempCelsius + "℃. Jej odpowiednik to " + tempFahrenheit.toFixed(1) + "℉.";
-        if(tempCelsius < 0){
-          msg = "woda jest zamarznięta.";
-        } else if (tempCelsius >= 0 && tempCelsius < 100){
-          msg = "woda jest cieczą.";
-        } else if (tempCelsius >= 100){
-          msg = "woda zamienia się w parę.";
-        }
-        console.log(fahrenheitInfo);
-        fahrenheitInfo.innerText = "Przy temperaturze " + tempCelsius + "℃, " + msg;
+  tempCelsius = window.prompt("Podaj temperaturę w stopniach Celsiusza"); // Prompt o podanie temperatury
+  if (tempCelsius !== null){ //Sprawdzenie czy podana wartość istnieje
+    if (tempCelsius !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
+      tempFahrenheit = tempCelsius * 1.8 + 32;
+      outputFahrenheit.innerText = "Podana temperatura to " + tempCelsius + "℃. Jej odpowiednik to " + tempFahrenheit.toFixed(1) + "℉.";
+      if(tempCelsius < 0){
+        msg = "woda jest zamarznięta.";
+      } else if (tempCelsius >= 0 && tempCelsius < 100){
+        msg = "woda jest cieczą.";
+      } else if (tempCelsius >= 100){
+        msg = "woda zamienia się w parę.";
       }
-    } else alert ("Musisz podać temperaturę!");
+      console.log(fahrenheitInfo);
+      fahrenheitInfo.innerText = "Przy temperaturze " + tempCelsius + "℃, " + msg;
+    }
+  } else alert ("Musisz podać temperaturę!");
 }
 celsiusToFahrenheitButton.addEventListener("click", celsiusToFahrenheit);
 
 // Fahrenheit to Celsius
 function fahrenheitToCelsius (){
-    tempFahrenheit = window.prompt("Podaj temperaturę w stopniach Fahrenheita"); // Prompt o podanie temperatury // [uwagi] powinno byc w stopniach Fahrenheita // No pewnie, że tak. Nie zauważyłem wcześniej, ale już poprawione
-    if (tempFahrenheit !== null){ //Sprawdzenie czy podana wartość istnieje
-      if (tempFahrenheit !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
-        tempCelsius = (tempFahrenheit - 32) / 1.8 ;
-        outputCelsius.innerText = "Podana temperatura to " + tempFahrenheit + "℉. Jej odpowiednik to " + tempCelsius.toFixed(1) + "℃";
-        if (tempCelsius < 0){
-          msg = "woda jest zamarznięta.";
-        } else if (tempCelsius >= 0 && tempCelsius < 100){
-          msg = "woda jest cieczą.";
-        } else if (tempCelsius >= 100){
-          msg = "woda zamienia się w parę.";
-        }
-        celsiusInfo.innerText = "Przy temperaturze " + tempCelsius.toFixed(1) + "℃, " + msg;
+  tempFahrenheit = window.prompt("Podaj temperaturę w stopniach Fahrenheita"); // Prompt o podanie temperatury
+  if (tempFahrenheit !== null){ //Sprawdzenie czy podana wartość istnieje
+    if (tempFahrenheit !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
+      tempCelsius = (tempFahrenheit - 32) / 1.8 ;
+      outputCelsius.innerText = "Podana temperatura to " + tempFahrenheit + "℉. Jej odpowiednik to " + tempCelsius.toFixed(1) + "℃";
+      if (tempCelsius < 0){
+        msg = "woda jest zamarznięta.";
+      } else if (tempCelsius >= 0 && tempCelsius < 100){
+        msg = "woda jest cieczą.";
+      } else if (tempCelsius >= 100){
+        msg = "woda zamienia się w parę.";
       }
-    } else alert ("Nie podano temperatury");
+      celsiusInfo.innerText = "Przy temperaturze " + tempCelsius.toFixed(1) + "℃, " + msg;
+    }
+  } else alert ("Nie podano temperatury");
 }
 fahrenheitToCelsiusButton.addEventListener("click", fahrenheitToCelsius);
 
@@ -79,7 +79,7 @@ function status(tempCelsius){
 status(tempCelsius);*/
 /*
 function doAllFunctions (){
-    CelsiusToFahrenheit();
-    FahrenheitToCelsius();
-    status();
+  CelsiusToFahrenheit();
+  FahrenheitToCelsius();
+  status();
 }*/
