@@ -26,7 +26,7 @@ if (!name || name === 'null'){
 function celsiusToFahrenheit (){
   tempCelsius = window.prompt("Podaj temperaturę w stopniach Celsiusza"); // Prompt o podanie temperatury
   if (tempCelsius.trim() !== null){ //Sprawdzenie czy podana wartość istnieje
-    if (tempCelsius !== "" || !Number.isNaN(tempCelsius)) { // Sprawdzenie czy wartość jest liczbą
+    if (parseFloat(tempCelsius) === "number" || !isNaN(tempCelsius)) { // Sprawdzenie czy wartość jest liczbą
       tempFahrenheit = tempCelsius * 1.8 + 32;
       outputFahrenheit.innerText = "Podana temperatura to " + tempCelsius + "℃. Jej odpowiednik to " + tempFahrenheit.toFixed(1) + "℉.";
       if(tempCelsius < 0){
@@ -37,8 +37,8 @@ function celsiusToFahrenheit (){
         msg = "woda zamienia się w parę.";
       }
       fahrenheitInfo.innerText = "Przy temperaturze " + tempCelsius + "℃, " + msg;
-    }
-  } else alert ("Musisz podać temperaturę!");
+    } else alert ("Musisz podać temperaturę!");
+  }
 }
 celsiusToFahrenheitButton.addEventListener("click", celsiusToFahrenheit);
 
@@ -46,7 +46,7 @@ celsiusToFahrenheitButton.addEventListener("click", celsiusToFahrenheit);
 function fahrenheitToCelsius (){
   tempFahrenheit = window.prompt("Podaj temperaturę w stopniach Fahrenheita"); // Prompt o podanie temperatury
   if (tempFahrenheit.trim() !== null){ //Sprawdzenie czy podana wartość istnieje
-    if (tempFahrenheit !== "" || !isNaN) { // Sprawdzenie czy wartość jest liczbą
+    if (parseFloat(tempFahrenheit) === "number" || !isNaN(tempFahrenheit)) { // Sprawdzenie czy wartość jest liczbą
       tempCelsius = (tempFahrenheit - 32) / 1.8 ;
       outputCelsius.innerText = "Podana temperatura to " + tempFahrenheit + "℉. Jej odpowiednik to " + tempCelsius.toFixed(1) + "℃";
       if (tempCelsius < 0){
@@ -57,28 +57,7 @@ function fahrenheitToCelsius (){
         msg = "woda zamienia się w parę.";
       }
       celsiusInfo.innerText = "Przy temperaturze " + tempCelsius.toFixed(1) + "℃, " + msg;
-    }
-  } else alert ("Nie podano temperatury");
+    } else alert ("Nie podano temperatury");
+  }
 }
 fahrenheitToCelsiusButton.addEventListener("click", fahrenheitToCelsius);
-
-
-
-/*
-console.log('przed ifem: ' + tempCelsius);
-function status(tempCelsius){
-  if (tempCelsius < 0){
-    msg = "woda jest zamarznięta.";
-  } else if (tempCelsius >= 0 && tempCelsius < 100){
-    msg = "woda jest cieczą.";
-  } else if (tempCelsius >= 100);{
-    msg = "woda zamienia się w parę.";
-  }
-};
-status(tempCelsius);*/
-/*
-function doAllFunctions (){
-  CelsiusToFahrenheit();
-  FahrenheitToCelsius();
-  status();
-}*/
