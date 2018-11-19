@@ -1,6 +1,89 @@
 'use strict';
 
+// First Button
+var outputFirst = document.getElementById("outputFirst"); // pole do wyświetlania komunikatów
 var celsiusToFahrenheitButton = document.getElementById("celsiusToFahrenheit");
+
+function getTempCelsius() { // podanie temperatury
+  var temp = window.prompt("Podaj temperaturę w stopniach Celsiusza:");
+  return temp;
+}
+
+function checkTempCelsius(tempCelsius) { // sprawdzenie podanej wartości
+  if (tempCelsius.trim() !== null) { // sprawdzenie czy nie pusta wartość
+    if (parseFloat(tempCelsius) === "number" || !isNaN(tempCelsius)) { // sprawdzenie czy liczba
+      var temp = tempCelsius * 1.8 + 32; // przeliczenie na stopnie Far
+      outputFirst.innerHTML = "Podana temperatura to " + tempCelsius + "℃. Jej odpowiednik to " + temp.toFixed(1) + "℉.";
+    } else {
+      outputFirst.innerHTML = "Podana wartość jest nieprawidłowa";
+    }
+  }
+}
+
+function waterInfo1(tempCelsius){ // informacja o stanie wody
+  if (tempCelsius < 0){
+    outputFirst.innerHTML = "Przy temperaturze " + tempCelsius + "℃ woda jest zamarznięta.";
+  } else if (tempCelsius >= 0 && tempCelsius < 100){
+    outputFirst.innerHTML = "Przy temperaturze " + tempCelsius + "℃ woda jest cieczą.";
+  } else if (tempCelsius >= 100){
+    outputFirst.innerHTML = "Przy temperaturze " +tempCelsius + "℃ woda zamienia się w parę.";
+  }
+}
+
+celsiusToFahrenheitButton.addEventListener("click", function() { // wywołanie funkcji po kolei
+  var temp = getTempCelsius();
+  checkTempCelsius(temp);
+  waterInfo1(temp);
+});
+
+// Second Button
+var outputSecond = document.getElementById("outputSecond");
+var fahrenheitToCelsiusButton = document.getElementById("fahrenheitToCelsius");
+
+function getTempFahrenheit() { // podanie temperatury
+  var temp = window.prompt("Podaj temperaturę w stopniach Fahrenheit'a:");
+  return temp;
+}
+
+function checkTempFahrenheit(tempFahrenheit){ // sprawdzenie podanej wartości
+  if (tempFahrenheit.trim() !== null) { // sprawdzenie czy nie pusta wartość
+    if (parseFloat(tempFahrenheit) === "number" || !isNaN(tempFahrenheit)) { // sprawdznie czy warość liczbowa
+      var temp = (tempFahrenheit - 32) / 1.8; // przeliczenie na stopnie Cel
+      outputSecond.innerHTML = "Podana temperatura to " + tempFahrenheit + "℉. Jej odpowiednik to " + temp.toFixed(1) +"℃.";
+    } else {
+      outputSecond.innerHTML = "Podana wartość jest nieprawidłowa";
+    }
+  }
+}
+
+function waterInfo2(tempFahrenheit){
+  if (temp < 0){
+    outputSecond.innerHTML = "Przy temperaturze " + tempCelsius + "℃ woda jest zamarznięta.";
+  } else if (temp >= 0 && temp < 100) {
+    outputSecond.innerHTML = "Przy temperaturze " + tempCelsius + "℃ woda jest cieczą.";
+  } else if (temp >= 100) {
+    outputSecond.innerHTML = "Przy temperaturze " + tempCelsius + "℃ woda zamienia się w parę.";
+  }
+}
+
+fahrenheitToCelsiusButton.addEventListener("click", function() {
+  var temp = getTempFahrenheit();
+  checkTempFahrenheit(temp);
+  waterInfo2(temp);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+/*var celsiusToFahrenheitButton = document.getElementById("celsiusToFahrenheit");
 var fahrenheitToCelsiusButton = document.getElementById("fahrenheitToCelsius");
 
 var tempCelsius; // wartość temperatury, która ma być podana w prompcie
@@ -65,7 +148,7 @@ function newLine(){
     var line;
     line.innerText = '<br>'
     console.log (line);
-}
+}*/
 
 
 /*
