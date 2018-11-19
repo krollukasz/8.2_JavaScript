@@ -25,8 +25,7 @@ if (!name || name === 'null'){
 // Celsius to Fahrenheit
 function celsiusToFahrenheit (){
   tempCelsius = window.prompt("Podaj temperaturę w stopniach Celsiusza"); // Prompt o podanie temperatury
-  if (tempCelsius.trim() !== null){ //Sprawdzenie czy podana wartość istnieje
-    if (parseFloat(tempCelsius) === "number" || !isNaN(tempCelsius)) { // Sprawdzenie czy wartość jest liczbą
+  if (!isNaN(tempCelsius)) {
       tempFahrenheit = tempCelsius * 1.8 + 32;
       outputFahrenheit.innerText = "Podana temperatura to " + tempCelsius + "℃. Jej odpowiednik to " + tempFahrenheit.toFixed(1) + "℉.";
       if(tempCelsius < 0){
@@ -39,7 +38,6 @@ function celsiusToFahrenheit (){
       fahrenheitInfo.innerText = "Przy temperaturze " + tempCelsius + "℃, " + msg;
     } else alert ("Musisz podać temperaturę!");
   }
-}
 celsiusToFahrenheitButton.addEventListener("click", celsiusToFahrenheit);
 
 // Fahrenheit to Celsius
