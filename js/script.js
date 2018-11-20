@@ -24,7 +24,7 @@ if (!name || name === 'null'){
 
 // Celsius to Fahrenheit
 function celsiusToFahrenheit (){
-  tempCelsius = window.prompt("Podaj temperaturę w stopniach Celsiusza"); // Prompt o podanie temperatury
+  tempCelsius = parseFloat(window.prompt("Podaj temperaturę w stopniach Celsiusza")); // Prompt o podanie temperatury
   if (!isNaN(tempCelsius)) {
       tempFahrenheit = tempCelsius * 1.8 + 32;
       outputFahrenheit.innerText = "Podana temperatura to " + tempCelsius + "℃. Jej odpowiednik to " + tempFahrenheit.toFixed(1) + "℉.";
