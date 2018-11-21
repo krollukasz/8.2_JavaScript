@@ -42,10 +42,9 @@ celsiusToFahrenheitButton.addEventListener("click", celsiusToFahrenheit);
 
 // Fahrenheit to Celsius
 function fahrenheitToCelsius (){
-  tempFahrenheit = window.prompt("Podaj temperaturę w stopniach Fahrenheita"); // Prompt o podanie temperatury
-  if (tempFahrenheit.trim() !== null){ //Sprawdzenie czy podana wartość istnieje
-    if (parseFloat(tempFahrenheit) === "number" || !isNaN(tempFahrenheit)) { // Sprawdzenie czy wartość jest liczbą
-      tempCelsius = (tempFahrenheit - 32) / 1.8 ;
+  tempFahrenheit = parseFloat(window.prompt("Podaj temperaturę w stopniach Fahrenheita")); // Prompt o podanie temperatury
+  if (!isNaN(tempFahrenheit)){ //Sprawdzenie czy podana wartość istnieje
+    tempCelsius = (tempFahrenheit - 32) / 1.8 ;
       outputCelsius.innerText = "Podana temperatura to " + tempFahrenheit + "℉. Jej odpowiednik to " + tempCelsius.toFixed(1) + "℃";
       if (tempCelsius < 0){
         msg = "woda jest zamarznięta.";
@@ -57,5 +56,4 @@ function fahrenheitToCelsius (){
       celsiusInfo.innerText = "Przy temperaturze " + tempCelsius.toFixed(1) + "℃, " + msg;
     } else alert ("Nie podano temperatury");
   }
-}
 fahrenheitToCelsiusButton.addEventListener("click", fahrenheitToCelsius);
