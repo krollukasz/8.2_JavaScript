@@ -6,46 +6,37 @@ var fahrenheitToCelsiusButton = document.getElementById("fahrenheitToCelsius"); 
 var outputFirst = document.getElementById("outputFirst"); // wyświetlenie temperatury
 var outputSecond = document.getElementById("outputSecond"); // wyświetlenie informacji o stanie wody
 
-// First Button
-function getTempCelsius() { // podanie temperatury
-  var temp = parseFloat(window.prompt("Podaj temperaturę w stopniach Celsiusza:"));
+
+
+function getTemp() { // podanie temperatury
+  var temp = parseFloat(window.prompt("Podaj temperaturę:"));
   return temp;
 };
 
-function checkTempCelsius(tempCelsius) { // sprawdzenie podanej wartości
-  if (!isNaN(tempCelsius)) { // sprawdzenie czy wartość nie jest pusta
-      var temp = tempCelsius * 1.8 + 32; // przeliczenie na stopnie Far
-      outputFirst.innerHTML = "Podana temperatura to " + tempCelsius + "℃. Jej odpowiednik to " + temp.toFixed(1) + "℉.";
-    } else {
-      outputFirst.innerHTML = "Podana wartość jest nieprawidłowa";
-    }
+function celsiusToFahrenheit(tempCelsius) { // sprawdzenie podanej wartości
+  var tempF = tempCelsius * 1.8 + 32; // przeliczenie na stopnie Far
+  return tempF;
 };
+function fahrenheitToCelsius(tempFahrenheit) {
+  var tempC = (tempFahrenheit - 32) / 1.8; // przeliczenie na stopnie Cel
+  return tempC;
+}
 
-celsiusToFahrenheitButton.addEventListener("click", function() { // wywołanie funkcji po kolei
-  var temp = getTempCelsius();
-  checkTempCelsius(temp);
-  waterInfo(temp);
-});
-
-// Second Button
-function getTempFahrenheit() { // podanie temperatury
-  var temp = parseFloat(window.prompt("Podaj temperaturę w stopniach Fahrenheit'a:"));
-  return temp;
-};
-
-function checkTempFahrenheit(tempFahrenheit){ // sprawdzenie podanej wartości
-  if (!isNaN(tempFahrenheit)) { // sprawdzenie czy wartość nie jest pusta
-      var temp = (tempFahrenheit - 32) / 1.8; // przeliczenie na stopnie Cel
-      outputFirst.innerHTML = "Podana temperatura to " + tempFahrenheit + "℉. Jej odpowiednik to " + temp.toFixed(1) +"℃.";
-    } else {
-      outputFirst.innerHTML = "Podana wartość jest nieprawidłowa";
-    }
+function showTemp(temp){ // sprawdzenie podanej wartości
+  outputFirst.innerHTML = "Obliczona temperatura to " + temp;
 };
 
 fahrenheitToCelsiusButton.addEventListener("click", function() {
-  var temp = getTempFahrenheit();
-  checkTempFahrenheit(temp);
-  waterInfo(temp);
+  var tempF = getTemp();
+  var tempC = fahrenheitToCelsius(tempF);
+  showTemp(tempC);
+  waterInfo(tempC);
+});
+celsiusToFahrenheitButton.addEventListener("click", function () {
+  var tempC = getTemp();
+  var tempF = celsiusToFahrenheit(tempC);
+  showTemp(tempF);
+  waterInfo(tempC);
 });
 
 function waterInfo(tempCelsius){ // informacja o stanie wody
