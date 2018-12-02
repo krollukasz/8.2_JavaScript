@@ -27,10 +27,10 @@ function showTemp(temp){ // funkcja do wyświetlenia info z temperaturą
 
 celsiusToFahrenheitButton.addEventListener("click", function () { // wywołanie po kolei funkcji dla pierwszego buttona
   var tempC = getTemp();
-    if (!tempC || tempC === null) {
+    if (!tempC || tempC === null) { // sprawdzenie, czy podano cokolwiek. Jeśli nie lub anulowano to wypisanie komunikatu
       outputFirst.innerHTML = "Nie podano żadnej wartości.";
       outputSecond.innerHTML = "";
-    } else if (isNaN(tempC)) {
+    } else if (isNaN(tempC)) { // sprawdzenie, czy to co podano jest tekstem
       outputFirst.innerHTML = "To nie jest liczba.";
       outputSecond.innerHTML = "";
     } else {
@@ -42,10 +42,10 @@ celsiusToFahrenheitButton.addEventListener("click", function () { // wywołanie 
 
 fahrenheitToCelsiusButton.addEventListener("click", function() { // wywołanie po kolei funkcji dla drugiego buttona
   var tempF = getTemp();
-    if (!tempF || tempF === null) {
+    if (!tempF || tempF === null) { // sprawdzenie, czy podano cokolwiek. Jeśli nie lub anulowano to wypisanie komunikatu
       outputFirst.innerHTML = "Nie podano żadnej wartości.";
       outputSecond.innerHTML = "";
-    } else if (isNaN(tempF)) {
+    } else if (isNaN(tempF)) { // sprawdzenie, czy to co podano jest tekstem
       outputFirst.innerHTML = "To nie jest liczba.";
       outputSecond.innerHTML = "";
     } else {
